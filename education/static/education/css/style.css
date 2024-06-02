@@ -1,0 +1,16 @@
+.menu_item {
+    margin-right: 100px;
+}
+
+.header {
+    margin-bottom: 50px;
+}
+
+.card-div {
+    margin-bottom: 15px;
+}
+
+.paginator{
+    display: flex;
+    justify-content: center;
+}

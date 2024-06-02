@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% for post in page_obj %}
+<div class="card card-div">
+    <div class="card-body">
+        <h6>{{ post.title }}</h6>
+        <p><a href="{{ post.link }}">Ссылка на ресурс</a></p>
+        <p>Категория: {{ post.cat.title }}</p>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
+
+{% block navigate %}
+{% if page_obj.has_other_pages %}
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+    {% for p in paginator.page_range %}
+        {% if p >= page_obj.number|add:-1 and p <= page_obj.number|add:1 %}
+        <li class="page-item"><a class="page-link" href="?page={{ p }}">{{ p }}</a></li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+</nav>
+{% endif %}
+{% endblock %}
